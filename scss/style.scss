@@ -65,15 +65,6 @@ body {
     justify-content: center;
     position: relative;
     width: 40%;
-
-    &::before {
-      animation: x-shift 2s infinite, y-shift 2s infinite 1s;
-      background: red;
-      content: '';
-      height: 5px;
-      position: absolute;
-      width: 5px;
-    }
   }
 }
 

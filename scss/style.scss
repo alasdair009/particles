@@ -6,13 +6,13 @@ $particle-blocks: 4;
   $box-shadow-string:();
 
   @for $i from 0 through $particles-per-plate {
-    $box-shadow-string: append($box-shadow-string, #{randromPercentage()}vw #{randromPercentage()}vh #{$size * 5}px #{$size * 3}px rgba(255, 255, 255, 0.5), comma);
+    $box-shadow-string: append($box-shadow-string, #{randomPosition()}vw #{randomPosition()}vh #{$size * 5}px #{$size * 3}px rgba(255, 255, 255, 0.5), comma);
   }
 
   @return $box-shadow-string;
 }
 
-@function randromPercentage() {
+@function randomPosition() {
   @return ((random(100) - 50) * 2);
 }
 
@@ -92,7 +92,6 @@ body {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    //transform-origin: left top;
     width: 25%;
 
     &::before {
@@ -110,7 +109,6 @@ body {
     }
 
     @for $i from 0 through $particle-blocks {
-
       &--#{$i} {
 
         animation-delay: -#{$i * ($particle-base-duration / $particle-blocks)}s;

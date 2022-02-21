@@ -1,5 +1,7 @@
-$particles-per-plate: 200;
+$particles-per-plate: 500;
 $particle-speed: 10;
+$particle-base-duration: 10;
+$particle-blocks: 4;
 
 @function generateParticles($size) {
   $box-shadow-string:();
@@ -21,70 +23,6 @@ $particle-speed: 10;
   }
   to {
     transform: rotate(360deg) translate(-50%, -50%)
-  }
-}
-
-@keyframes x-shift {
-  0%, 50%, 100% {
-    left: 50%;
-  }
-
-  25% {
-    left: 75%;
-  }
-
-  75% {
-    left: 25%;
-  }
-}
-
-@keyframes y-shift {
-  0%, 100% {
-    top: 25%;
-  }
-
-  25%, 75% {
-    top: 50%;
-  }
-
-  50% {
-    top: 75%;
-  }
-}
-
-@keyframes slide1 {
-  0% {
-    left: -100%;
-    top: -100%;
-  }
-
-  100% {
-    left: 100%;
-    top: 100%;
-  }
-}
-
-@keyframes slide2 {
-  0% {
-    left: 100%;
-    top: -100%;
-  }
-
-  100% {
-    left: -100%;
-    top: 100%;
-  }
-}
-
-@keyframes slide3 {
-  0% {
-    left: 100%;
-    top: 100%;
-  }
-
-  100% {
-    left: -100%;
-    top: -100%;
   }
 }
 
@@ -171,16 +109,23 @@ body {
       width: 1px;
     }
 
-    @for $i from 0 through 3 {
-      $animation-duration: ($i * 30);
+    @for $i from 0 through $particle-blocks {
 
       &--#{$i} {
 
-        animation-delay: -#{$i * 7}s;
-        animation-duration: #{10 + (5 * $i)}s;
+        animation-delay: -#{$i * ($particle-base-duration / $particle-blocks)}s;
+        animation-duration: #{$particle-base-duration + (($particle-base-duration / 2) * $i)}s;
+
+        @if ($i % 2 == 0) {
+          animation-direction: reverse;
+        }
 
         &::before {
           box-shadow: generateParticles($i);
+
+          @if ($i % 2 == 0) {
+            animation-direction: normal;
+          }
         }
       }
     }

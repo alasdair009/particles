@@ -1,6 +1,5 @@
 $particles-per-plate: 500;
-$particle-speed: 10;
-$particle-base-duration: 10;
+$particle-base-duration: 30;
 $particle-blocks: 4;
 
 @function generateParticles($size) {

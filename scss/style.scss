@@ -1,20 +1,19 @@
 $particles-per-plate: 50;
 
-@function generateParticles() {
+@function generateParticles($size) {
   $basic-shadow: '0 0 5px 3px rgba(255, 255, 255, 0.5)';
 
   $box-shadow-string:();
 
   @for $i from 0 through $particles-per-plate {
-    $box-shadow-string: append($box-shadow-string, #{randromPercentage()}px #{randromPercentage()}px 5px 3px rgba(255, 255, 255, 0.5), comma);
-
+    $box-shadow-string: append($box-shadow-string, #{randromPercentage()}vw #{randromPercentage()}vh #{$size * 5}px #{$size * 3}px rgba(255, 255, 255, 0.5), comma);
   }
 
   @return $box-shadow-string;
 }
 
 @function randromPercentage() {
-  @return random(300);
+  @return random(100);
 }
 
 * {
@@ -50,6 +49,7 @@ body {
   &__content {
     align-items: center;
     background: white;
+    color: black;
     display: flex;
     font-size: 30px;
     height: 40%;
@@ -75,12 +75,18 @@ body {
 
     &::before {
       border-radius: 50%;
-      box-shadow: generateParticles();
       content: '';
       height: 1px;
-      left: 50%;
-      top: 50%;
+      left: 0;
+      position: absolute;
+      top: 0;
       width: 1px;
+    }
+
+    @for $i from 0 through 3 {
+      &--#{$i}::before {
+        box-shadow: generateParticles($i);
+      }
     }
   }
 }

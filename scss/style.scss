@@ -1,8 +1,7 @@
-$particles-per-plate: 50;
+$particles-per-plate: 200;
+$particle-speed: 10;
 
 @function generateParticles($size) {
-  $basic-shadow: '0 0 5px 3px rgba(255, 255, 255, 0.5)';
-
   $box-shadow-string:();
 
   @for $i from 0 through $particles-per-plate {
@@ -13,7 +12,80 @@ $particles-per-plate: 50;
 }
 
 @function randromPercentage() {
-  @return random(100);
+  @return ((random(100) - 50) * 2);
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translate(-50%, -50%)
+  }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%)
+  }
+}
+
+@keyframes x-shift {
+  0%, 50%, 100% {
+    left: 50%;
+  }
+
+  25% {
+    left: 75%;
+  }
+
+  75% {
+    left: 25%;
+  }
+}
+
+@keyframes y-shift {
+  0%, 100% {
+    top: 25%;
+  }
+
+  25%, 75% {
+    top: 50%;
+  }
+
+  50% {
+    top: 75%;
+  }
+}
+
+@keyframes slide1 {
+  0% {
+    left: -100%;
+    top: -100%;
+  }
+
+  100% {
+    left: 100%;
+    top: 100%;
+  }
+}
+
+@keyframes slide2 {
+  0% {
+    left: 100%;
+    top: -100%;
+  }
+
+  100% {
+    left: -100%;
+    top: 100%;
+  }
+}
+
+@keyframes slide3 {
+  0% {
+    left: 100%;
+    top: 100%;
+  }
+
+  100% {
+    left: -100%;
+    top: -100%;
+  }
 }
 
 * {
@@ -56,36 +128,60 @@ body {
     justify-content: center;
     position: relative;
     width: 40%;
+
+    &::before {
+      animation: x-shift 2s infinite, y-shift 2s infinite 1s;
+      background: red;
+      content: '';
+      height: 5px;
+      position: absolute;
+      width: 5px;
+    }
   }
 }
 
 .particle-effect {
   height: 100%;
   left: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
   width: 100%;
 
   &__box {
-    height: 100%;
-    left: 0;
+    animation: orbit 21s infinite linear;
+    height: 25%;
+    left: 50%;
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    //transform-origin: left top;
+    width: 25%;
 
     &::before {
+      animation: inherit;
+      animation-direction: reverse;
       border-radius: 50%;
       content: '';
       height: 1px;
-      left: 0;
+      left: 50%;
       position: absolute;
-      top: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 1px;
     }
 
     @for $i from 0 through 3 {
-      &--#{$i}::before {
-        box-shadow: generateParticles($i);
+      $animation-duration: ($i * 30);
+
+      &--#{$i} {
+
+        animation-delay: -#{$i * 7}s;
+        animation-duration: #{10 + (5 * $i)}s;
+
+        &::before {
+          box-shadow: generateParticles($i);
+        }
       }
     }
   }

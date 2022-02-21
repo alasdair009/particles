@@ -1,0 +1,26 @@
+{
+  "name": "particles",
+  "version": "1.0.0",
+  "description": "a css background particle effect",
+  "main": "index.html",
+  "scripts": {
+    "dev": "reload -b",
+    "scss": "node-sass --watch --output-style=expanded --source-map=true scss/style.scss css/style.css",
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alasdair009/particles.git"
+  },
+  "author": "Alasdair Macrae",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alasdair009/particles/issues"
+  },
+  "homepage": "https://github.com/alasdair009/particles#readme",
+  "devDependencies": {
+    "http-server": "^14.1.0",
+    "node-sass": "^7.0.1",
+    "reload": "^3.2.0"
+  }
+}

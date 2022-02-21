@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, serif;
+}
+
+body {
+  background: black;
+}
+
+.particles-box {
+  align-items: center;
+  background: linear-gradient(207deg, #396c93 35%, transparent);
+  display: flex;
+  height: 100vh;
+  justify-content: flex-end;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.particles-box::before {
+  background: linear-gradient(117deg, #000 15%, transparent 50%, transparent 65%, #000 95%);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.particles-box__content {
+  align-items: center;
+  background: white;
+  display: flex;
+  font-size: 30px;
+  height: 40%;
+  justify-content: center;
+  position: relative;
+  width: 40%;
+}
+
+.particle-effect {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.particle-effect__box {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.particle-effect__box::before {
+  border-radius: 50%;
+  box-shadow: 216px 165px 5px 3px rgba(255, 255, 255, 0.5), 175px 10px 5px 3px rgba(255, 255, 255, 0.5), 87px 166px 5px 3px rgba(255, 255, 255, 0.5), 63px 110px 5px 3px rgba(255, 255, 255, 0.5), 210px 16px 5px 3px rgba(255, 255, 255, 0.5), 61px 255px 5px 3px rgba(255, 255, 255, 0.5), 295px 90px 5px 3px rgba(255, 255, 255, 0.5), 147px 168px 5px 3px rgba(255, 255, 255, 0.5), 175px 176px 5px 3px rgba(255, 255, 255, 0.5), 18px 248px 5px 3px rgba(255, 255, 255, 0.5), 168px 197px 5px 3px rgba(255, 255, 255, 0.5), 271px 176px 5px 3px rgba(255, 255, 255, 0.5), 165px 74px 5px 3px rgba(255, 255, 255, 0.5), 208px 297px 5px 3px rgba(255, 255, 255, 0.5), 36px 217px 5px 3px rgba(255, 255, 255, 0.5), 95px 263px 5px 3px rgba(255, 255, 255, 0.5), 100px 41px 5px 3px rgba(255, 255, 255, 0.5), 288px 278px 5px 3px rgba(255, 255, 255, 0.5), 291px 222px 5px 3px rgba(255, 255, 255, 0.5), 94px 99px 5px 3px rgba(255, 255, 255, 0.5), 82px 33px 5px 3px rgba(255, 255, 255, 0.5), 291px 246px 5px 3px rgba(255, 255, 255, 0.5), 152px 235px 5px 3px rgba(255, 255, 255, 0.5), 228px 201px 5px 3px rgba(255, 255, 255, 0.5), 6px 84px 5px 3px rgba(255, 255, 255, 0.5), 231px 265px 5px 3px rgba(255, 255, 255, 0.5), 256px 168px 5px 3px rgba(255, 255, 255, 0.5), 143px 80px 5px 3px rgba(255, 255, 255, 0.5), 126px 144px 5px 3px rgba(255, 255, 255, 0.5), 267px 90px 5px 3px rgba(255, 255, 255, 0.5), 258px 112px 5px 3px rgba(255, 255, 255, 0.5), 151px 232px 5px 3px rgba(255, 255, 255, 0.5), 171px 69px 5px 3px rgba(255, 255, 255, 0.5), 114px 2px 5px 3px rgba(255, 255, 255, 0.5), 109px 175px 5px 3px rgba(255, 255, 255, 0.5), 63px 92px 5px 3px rgba(255, 255, 255, 0.5), 58px 9px 5px 3px rgba(255, 255, 255, 0.5), 275px 177px 5px 3px rgba(255, 255, 255, 0.5), 264px 297px 5px 3px rgba(255, 255, 255, 0.5), 267px 24px 5px 3px rgba(255, 255, 255, 0.5), 68px 291px 5px 3px rgba(255, 255, 255, 0.5), 165px 294px 5px 3px rgba(255, 255, 255, 0.5), 27px 189px 5px 3px rgba(255, 255, 255, 0.5), 203px 162px 5px 3px rgba(255, 255, 255, 0.5), 217px 247px 5px 3px rgba(255, 255, 255, 0.5), 52px 108px 5px 3px rgba(255, 255, 255, 0.5), 230px 190px 5px 3px rgba(255, 255, 255, 0.5), 73px 236px 5px 3px rgba(255, 255, 255, 0.5), 207px 77px 5px 3px rgba(255, 255, 255, 0.5), 184px 41px 5px 3px rgba(255, 255, 255, 0.5), 276px 188px 5px 3px rgba(255, 255, 255, 0.5);
+  content: '';
+  height: 1px;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,85 @@
+$particles-per-plate: 50;
+
+@function generateParticles() {
+  $basic-shadow: '0 0 5px 3px rgba(255, 255, 255, 0.5)';
+
+  $box-shadow-string:();
+
+  @for $i from 0 through $particles-per-plate {
+    $box-shadow-string: append($box-shadow-string, #{randromPercentage()}px #{randromPercentage()}px 5px 3px rgba(255, 255, 255, 0.5), comma);
+
+  }
+
+  @return $box-shadow-string;
+}
+
+@function randromPercentage() {
+  @return random(300);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, serif;
+}
+
+body {
+  background: black;
+}
+
+.particles-box {
+  align-items: center;
+  background: linear-gradient(207deg, #396c93 35%, transparent);
+  display: flex;
+  height: 100vh;
+  justify-content: flex-end;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background: linear-gradient(117deg, #000 15%, transparent 50%, transparent 65%, #000 95%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__content {
+    align-items: center;
+    background: white;
+    display: flex;
+    font-size: 30px;
+    height: 40%;
+    justify-content: center;
+    position: relative;
+    width: 40%;
+  }
+}
+
+.particle-effect {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &__box {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &::before {
+      border-radius: 50%;
+      box-shadow: generateParticles();
+      content: '';
+      height: 1px;
+      left: 50%;
+      top: 50%;
+      width: 1px;
+    }
+  }
+}

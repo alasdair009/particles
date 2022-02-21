@@ -1,7 +1,7 @@
 {
   "name": "particles",
   "version": "1.0.0",
-  "description": "a css background particle effect",
+  "description": "a css background particle effect!",
   "main": "index.html",
   "scripts": {
     "dev": "reload -b",
